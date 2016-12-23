@@ -17,7 +17,7 @@
 		/**
 		 * The graph will show only this actions
 		 */
-		$statement = $dbh->prepare("SELECT action, timestamp, COUNT(*) as total
+		$statement = $dbh->prepare("SELECT action, DATE(timestamp) as timestamp, COUNT(*) as total
 										FROM " . TABLE_LOG . " 
 										WHERE timestamp >= DATE_SUB( CURDATE(),INTERVAL :max_days DAY)
 										AND action IN ('5', '6', '8', '9', '37')
